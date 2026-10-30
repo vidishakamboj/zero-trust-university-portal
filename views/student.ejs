@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Student Dashboard | Zero Trust University</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="portal-body">
+  <div class="portal-layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-symbol">ZT</div>
+        <div>
+          <strong>ZERO TRUST</strong>
+          <span>UNIVERSITY PORTAL</span>
+        </div>
+      </div>
+
+      <div class="sidebar-label">STUDENT WORKSPACE</div>
+
+      <nav class="side-nav">
+        <a class="active" href="/student/dashboard">◫ &nbsp; Dashboard</a>
+        <a href="/student/profile">♙ &nbsp; My Profile</a>
+        <a href="/student/attendance">▤ &nbsp; Attendance</a>
+        <a href="/student/courses">▦ &nbsp; My Courses</a>
+        <a href="/student/assignments">▣ &nbsp; Assignments</a>
+        <a href="/student/results">◈ &nbsp; Results</a>
+        <a href="/student/security">◇ &nbsp; Security Center</a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="sidebar-user">
+          <div class="avatar"><%= user.fullName.charAt(0).toUpperCase() %></div>
+          <div>
+            <strong><%= user.fullName %></strong>
+            <span><%= user.universityId %></span>
+          </div>
+        </div>
+        <form action="/logout" method="POST">
+          <button class="logout-btn">Sign Out</button>
+        </form>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <span class="eyebrow blue">STUDENT PORTAL</span>
+          <h1>Dashboard Overview</h1>
+          <p class="muted">Your academic information in one secure place.</p>
+        </div>
+        <div class="topbar-status">
+          <span class="status-dot"></span> Authenticated Student
+        </div>
+      </header>
+
+      <section class="welcome-banner">
+        <div>
+          <span class="eyebrow">WELCOME BACK</span>
+          <h2>Hello, <%= user.fullName %>!</h2>
+          <p>Stay updated with your university activities and academic progress.</p>
+          <span class="student-tag">Student ID: <%= user.universityId %></span>
+        </div>
+        <div class="banner-graphic">ZT</div>
+      </section>
+
+      <section class="section-heading">
+        <div>
+          <h2>Academic Overview</h2>
+          <p class="muted">Information linked to your account</p>
+        </div>
+      </section>
+
+      <div class="stats-grid">
+        <a class="stat-card" href="/student/attendance">
+          <div class="stat-icon">%</div>
+          <span>Attendance</span>
+          <strong><%= stats.attendance %></strong>
+          <small>View attendance details</small>
+        </a>
+
+        <a class="stat-card" href="/student/courses">
+          <div class="stat-icon">▦</div>
+          <span>Enrolled Courses</span>
+          <strong><%= stats.courses %></strong>
+          <small>View enrolled subjects</small>
+        </a>
+
+        <a class="stat-card" href="/student/assignments">
+          <div class="stat-icon">▣</div>
+          <span>Assignments</span>
+          <strong><%= stats.assignments %></strong>
+          <small>View coursework</small>
+        </a>
+
+        <a class="stat-card" href="/student/results">
+          <div class="stat-icon">★</div>
+          <span>Results Available</span>
+          <strong><%= stats.results %></strong>
+          <small>View academic results</small>
+        </a>
+      </div>
+
+      <section class="section-heading">
+        <div>
+          <h2>Quick Access</h2>
+          <p class="muted">Explore your student services</p>
+        </div>
+      </section>
+
+      <div class="quick-grid">
+        <a href="/student/profile" class="quick-card">
+          <span class="quick-icon">♙</span>
+          <strong>My Profile</strong>
+          <p>View your registered student information.</p>
+          <span class="quick-link">Open Profile →</span>
+        </a>
+
+        <a href="/student/courses" class="quick-card">
+          <span class="quick-icon">▦</span>
+          <strong>Course Directory</strong>
+          <p>See the subjects assigned to your account.</p>
+          <span class="quick-link">View Courses →</span>
+        </a>
+
+        <a href="/student/results" class="quick-card">
+          <span class="quick-icon">★</span>
+          <strong>Academic Results</strong>
+          <p>Check your subject-wise marks and results.</p>
+          <span class="quick-link">View Results →</span>
+        </a>
+
+        <a href="/student/security" class="quick-card">
+          <span class="quick-icon">◇</span>
+          <strong>Security Center</strong>
+          <p>Review authentication status and security events.</p>
+          <span class="quick-link">Open Security →</span>
+        </a>
+      </div>
+
+      <footer class="portal-footer">
+        Zero Trust University Portal · Student Workspace
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

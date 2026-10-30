@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Register | Zero Trust University</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="auth-body">
+  <main class="auth-shell">
+    <section class="auth-info">
+      <div class="logo">ZT <span>UNIVERSITY</span></div>
+      <div class="auth-intro">
+        <span class="eyebrow">STUDENT ONBOARDING</span>
+        <h1>Your academic journey starts here.</h1>
+        <p>Create your student account with your own University ID and password. Your academic records stay linked to your individual account.</p>
+        <div class="security-points">
+          <div>✓ Choose your own Student ID</div>
+          <div>✓ Encrypted password storage</div>
+          <div>✓ Separate student records</div>
+        </div>
+      </div>
+      <small>© 2026 Zero Trust University Portal</small>
+    </section>
+
+    <section class="auth-panel">
+      <div class="auth-card">
+        <div class="mobile-logo">ZT UNIVERSITY</div>
+        <span class="eyebrow blue">NEW STUDENT</span>
+        <h2>Create account</h2>
+        <p class="muted">Enter your details to register</p>
+
+        <form id="registerForm">
+          <label for="fullName">Full Name</label>
+          <input id="fullName" maxlength="100"
+            placeholder="Your full name" required>
+
+          <label for="universityId">Choose University ID</label>
+          <input id="universityId" minlength="4" maxlength="30"
+            pattern="[A-Za-z0-9_-]{4,30}"
+            placeholder="Example: STUDENT2026" required>
+
+          <label for="email">Email Address</label>
+          <input id="email" type="email"
+            placeholder="student@example.com" required>
+
+          <label for="password">Create Password</label>
+          <div class="password-field">
+            <input id="password" type="password"
+              minlength="8" placeholder="At least 8 characters" required>
+            <button type="button" id="togglePassword">Show</button>
+          </div>
+
+          <label for="confirmPassword">Confirm Password</label>
+          <input id="confirmPassword" type="password"
+            minlength="8" placeholder="Repeat password" required>
+
+          <label for="captcha">Security verification</label>
+          <div class="captcha-row">
+            <img id="captchaImage" src="/captcha" alt="CAPTCHA code">
+            <button type="button" id="refreshCaptcha" class="outline-btn">Refresh</button>
+          </div>
+          <input id="captcha" maxlength="5"
+            placeholder="Enter CAPTCHA" autocomplete="off" required>
+
+          <p id="message" class="form-message" role="alert"></p>
+          <button id="submitBtn" class="primary-btn" type="submit">
+            Create Account
+          </button>
+        </form>
+
+        <p class="auth-footer">
+          Already registered? <a href="/">Sign in</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/script.js"></script>
+</body>
+</html>

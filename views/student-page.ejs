@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title><%= title %> | Zero Trust University</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="portal-body">
+  <div class="portal-layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-symbol">ZT</div>
+        <div>
+          <strong>ZERO TRUST</strong>
+          <span>UNIVERSITY PORTAL</span>
+        </div>
+      </div>
+
+      <div class="sidebar-label">STUDENT WORKSPACE</div>
+
+      <nav class="side-nav">
+        <a href="/student/dashboard">◫ &nbsp; Dashboard</a>
+        <a href="/student/profile"
+           class="<%= title === 'My Profile' ? 'active' : '' %>">
+          ♙ &nbsp; My Profile
+        </a>
+        <a href="/student/attendance"
+           class="<%= title === 'My Attendance' ? 'active' : '' %>">
+          ▤ &nbsp; Attendance
+        </a>
+        <a href="/student/courses"
+           class="<%= title === 'My Courses' ? 'active' : '' %>">
+          ▦ &nbsp; My Courses
+        </a>
+        <a href="/student/assignments"
+           class="<%= title === 'My Assignments' ? 'active' : '' %>">
+          ▣ &nbsp; Assignments
+        </a>
+        <a href="/student/results"
+           class="<%= title === 'My Results' ? 'active' : '' %>">
+          ◈ &nbsp; Results
+        </a>
+        <a href="/student/security"
+           class="<%= title === 'Security Center' ? 'active' : '' %>">
+          ◇ &nbsp; Security Center
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="sidebar-user">
+          <div class="avatar">
+            <%= user.fullName.charAt(0).toUpperCase() %>
+          </div>
+          <div>
+            <strong><%= user.fullName %></strong>
+            <span><%= user.universityId %></span>
+          </div>
+        </div>
+
+        <form action="/logout" method="POST">
+          <button class="logout-btn">Sign Out</button>
+        </form>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <span class="eyebrow blue">STUDENT WORKSPACE</span>
+          <h1><%= title %></h1>
+          <p class="muted">
+            Academic information for <%= user.fullName %>
+          </p>
+        </div>
+
+        <div class="topbar-status">
+          <span class="status-dot"></span> Secure Session
+        </div>
+      </header>
+
+      <section class="detail-card">
+        <div class="detail-header">
+          <div>
+            <h2><%= title %></h2>
+            <p class="muted">
+              University ID: <%= user.universityId %>
+            </p>
+          </div>
+
+          <a href="/student/dashboard" class="back-link">
+            ← Dashboard
+          </a>
+        </div>
+
+        <% if (rows.length > 0) { %>
+          <div class="table-scroll">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <% columns.forEach(column => { %>
+                    <th><%= column %></th>
+                  <% }) %>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% rows.forEach(row => { %>
+                  <tr>
+                    <% row.forEach(cell => { %>
+                      <td><%= cell === null ? "N/A" : cell %></td>
+                    <% }) %>
+                  </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        <% } else { %>
+          <div class="empty-state">
+            <div class="empty-icon">▤</div>
+            <h3>No records available yet</h3>
+            <p>
+              Your university records have not been added for this section.
+            </p>
+          </div>
+        <% } %>
+      </section>
+
+      <footer class="portal-footer">
+        Zero Trust University Portal · Private Student Records
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

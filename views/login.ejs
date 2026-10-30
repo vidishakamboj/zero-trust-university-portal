@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Student Login | Zero Trust University</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="auth-body">
+  <main class="auth-shell">
+    <section class="auth-info">
+      <div class="logo">ZT <span>UNIVERSITY</span></div>
+      <div class="auth-intro">
+        <span class="eyebrow">SECURE CAMPUS PLATFORM</span>
+        <h1>One secure portal.<br>Everything you need.</h1>
+        <p>Access your courses, attendance, assignments, academic results and personal information in one place.</p>
+        <div class="security-points">
+          <div>✓ Secure student authentication</div>
+          <div>✓ Role-based access protection</div>
+          <div>✓ Private academic records</div>
+        </div>
+      </div>
+      <small>© 2026 Zero Trust University Portal</small>
+    </section>
+
+    <section class="auth-panel">
+      <div class="auth-card">
+        <div class="mobile-logo">ZT UNIVERSITY</div>
+        <span class="eyebrow blue">STUDENT ACCESS</span>
+        <h2>Welcome back</h2>
+        <p class="muted">Sign in to your student dashboard</p>
+
+        <form id="loginForm">
+          <label for="universityId">University ID / Username</label>
+          <input id="universityId" autocomplete="username"
+            placeholder="Enter your registered ID" required>
+
+          <label for="password">Password</label>
+          <div class="password-field">
+            <input id="password" type="password"
+              autocomplete="current-password"
+              placeholder="Enter your password" required>
+            <button type="button" id="togglePassword">Show</button>
+          </div>
+
+          <label for="captcha">Security verification</label>
+          <div class="captcha-row">
+            <img id="captchaImage" src="/captcha" alt="CAPTCHA code">
+            <button type="button" id="refreshCaptcha" class="outline-btn">Refresh</button>
+          </div>
+          <input id="captcha" placeholder="Enter CAPTCHA"
+            maxlength="5" autocomplete="off" required>
+
+          <p id="message" class="form-message" role="alert"></p>
+          <button id="submitBtn" class="primary-btn" type="submit">
+            Secure Login
+          </button>
+        </form>
+
+        <p class="auth-footer">
+          New to the portal?
+          <a href="/register">Create student account</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/script.js"></script>
+</body>
+</html>
